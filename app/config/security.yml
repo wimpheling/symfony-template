@@ -1,0 +1,37 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/security.html
+security:
+    access_denied_url: /login
+    encoders:
+        AppBundle\Entity\User:
+            algorithm: bcrypt
+    # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        areva:
+          entity:
+              class: AppBundle:User
+              property: id
+
+    firewalls:
+        main:
+            anonymous: ~
+            logout: ~
+            form_login:
+                login_path: /login
+                # check_path: /
+            provider: areva
+            guard:
+                authenticators:
+                    - app.token_authenticator
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+
+            # activate different ways to authenticate
+
+            # http_basic: ~
+            # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+
+            # form_login: ~
+            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html

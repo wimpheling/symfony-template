@@ -1,0 +1,26 @@
+default:
+    translation:
+        locale: fr
+    suites:
+        default:
+            contexts:
+                - FeatureContext:
+                    session:   '@session'
+                - Fidry\AliceBundleExtension\Context\Doctrine\AliceORMContext
+                # - Behat\MinkExtension\Context\MinkContext
+
+    extensions:
+        Behat\Symfony2Extension: ~
+        Behat\MinkExtension:
+          base_url:  'http://localhost'
+          sessions:
+                default:
+                    #selenium2:
+                     # firefox:
+                     #   bin: "/Applications/Firefox.app/Contents/MacOS/firefox-bin"
+                    symfony2: ~
+        Fidry\AliceBundleExtension\Extension:
+            fixtures_base_path: ~ # default to %paths.base%/features/fixtures
+        Lakion\Behat\MinkDebugExtension:
+            directory: "%paths.base%/var/logs"
+            screenshot: true

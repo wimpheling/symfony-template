@@ -1,0 +1,8 @@
+{% extends '@App/base.html.twig' %}
+
+{% block body %}
+    <h1>Documents</h1>
+    {% for document in documents %}
+        <a href="">{{ document.nom }}
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,20 @@
+AppBundle\Entity\Category:
+  category_{1..3}:
+    nom: <password()>
+AppBundle\Entity\Document:
+  document_{1..3}:
+    nom: <password()>
+    type: 'PDF'
+    taille: <integer()>
+    category: '@category_1'
+  document_{4..6}:
+    nom: <password()>
+    type: 'PDF'
+    taille: <integer()>
+    category: '@category_2'
+  document_{7..9}:
+    nom: <password()>
+    type: 'PDF'
+    taille: <integer()>
+    category: '@category_3'
+
